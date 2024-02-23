@@ -16,6 +16,8 @@ body {
         img:not(.active){
             display: none;
         }
+
+    
     }
     
 
