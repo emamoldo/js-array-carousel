@@ -1,4 +1,5 @@
 // ``
+// Variables Part
 const slides = [
     '01.webp',
     '02.webp',
@@ -7,7 +8,7 @@ const slides = [
     '05.webp',
 ];
 
-const activeImage = 0;
+let activeImage = 0;
 
 const slidesElement = document.querySelector('.slides');
 
@@ -17,8 +18,8 @@ const bottomElement =document.querySelector('.bottom');
 
 console.log(slides, slidesElement, activeImage);
 
-// Cicle for 
 
+// Cicle for Section
 for (let i = 0; i < slides.length; i++) {
     const slide = slides[i];
     console.log(slide);
@@ -29,14 +30,33 @@ for (let i = 0; i < slides.length; i++) {
     slidesElement.insertAdjacentHTML('beforeend', slideMarkup)
 }
 
+
+// Listener Section
 console.log(topElement, bottomElement);
 
 // Listener Event for the top click
 topElement.addEventListener('click', function(){
-    console.log("click for the previus image");
+
+    activeImage--
+    const currentImage = document.querySelector('img.active')
+    console.log(currentImage);
+    currentImage.classList.remove('active')
+
+    const allSlides = document.querySelectorAll('.slides img')
+    console.log(allSlides[activeImage]);
+    allSlides[activeImage].classList.add('active')
+    
 })
 
 // Listener Event for the bottom click
 bottomElement.addEventListener('click', function(){
-    console.log("click for the next image");
+
+    activeImage++
+    const currentImage = document.querySelector('img.active')
+    console.log(currentImage);
+    currentImage.classList.remove('active')
+
+    const allSlides = document.querySelectorAll('.slides img')
+    console.log(allSlides[activeImage]);
+    allSlides[activeImage].classList.add('active')
 })
